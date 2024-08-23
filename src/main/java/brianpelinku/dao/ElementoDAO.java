@@ -1,6 +1,7 @@
 package brianpelinku.dao;
 
 import brianpelinku.entities.Elemento;
+import brianpelinku.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -11,7 +12,7 @@ public class ElementoDAO {
         this.em = em;
     }
 
-    // save
+    // salva elemento
     public void save(Elemento elemento) {
         try {
             EntityTransaction transaction = em.getTransaction();
@@ -23,4 +24,23 @@ public class ElementoDAO {
             System.out.println(e.getMessage());
         }
     }
+
+    // elimina elemento
+    public void delete(long id) {
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            Elemento found = em.find(Elemento.class, id);
+            if (found != null) {
+                transaction.begin();
+                em.remove(id);
+                transaction.commit();
+                System.out.println("Elemento eliminato dal catalogo!");
+            } else {
+                System.out.println("Elemento non presente nel catalogo!");
+            }
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
