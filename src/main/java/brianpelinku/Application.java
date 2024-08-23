@@ -73,7 +73,8 @@ public class Application {
         pd.save(prestito5);
         pd.save(prestito6);*/
 
-        
+        ed.getByAuthor("pi");
+
         System.out.println("Hello World!");
 
         em.close();

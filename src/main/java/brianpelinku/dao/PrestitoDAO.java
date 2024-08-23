@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class PrestitoDAO {
@@ -35,7 +36,9 @@ public class PrestitoDAO {
     }
 
     // ricercaPrestitiScaduti
-    public List<Prestito> ricercaPrestitiScaduti() {
-        return em.createNamedQuery("ricerca_prestiti_scaduti", Prestito.class).getResultList();
+    public List<Prestito> ricercaPrestitiScaduti(LocalDate oggi) {
+        TypedQuery<Prestito> query = em.createNamedQuery("ricerca_prestiti_scaduti", Prestito.class);
+        query.setParameter("oggi", LocalDate.now());
+        return query.getResultList();
     }
 }
