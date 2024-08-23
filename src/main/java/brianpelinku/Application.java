@@ -4,6 +4,7 @@ import brianpelinku.dao.ElementoDAO;
 import brianpelinku.dao.PrestitoDAO;
 import brianpelinku.dao.UtenteDAO;
 import brianpelinku.entities.Libro;
+import brianpelinku.entities.Prestito;
 import brianpelinku.entities.Rivista;
 import brianpelinku.entities.Utente;
 import brianpelinku.enums.GenereLibro;
@@ -56,6 +57,19 @@ public class Application {
         ed.save(rivista3);
         ed.save(rivista4);*/
 
+        Prestito prestito1 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+        Prestito prestito2 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+        Prestito prestito3 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+        Prestito prestito4 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+        Prestito prestito5 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+        Prestito prestito6 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
+
+        pd.save(prestito1);
+        pd.save(prestito2);
+        pd.save(prestito3);
+        pd.save(prestito4);
+        pd.save(prestito5);
+        pd.save(prestito6);
 
         System.out.println("Hello World!");
 

@@ -2,6 +2,7 @@ package brianpelinku.dao;
 
 import brianpelinku.entities.Prestito;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
 import java.util.List;
@@ -11,6 +12,19 @@ public class PrestitoDAO {
 
     public PrestitoDAO(EntityManager em) {
         this.em = em;
+    }
+
+    // salva prestito
+    public void save(Prestito prestito) {
+        try {
+            EntityTransaction t = em.getTransaction();
+            t.begin();
+            em.persist(prestito);
+            t.commit();
+            System.out.println("Prestito salvato correttamente!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // ricercaElementiInPrestitoUtente
