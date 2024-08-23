@@ -26,8 +26,7 @@ public class Utente {
     public Utente() {
     }
 
-    public Utente(long nTessera, String nome, String cognome, LocalDate dataNascita) {
-        this.nTessera = nTessera;
+    public Utente(String nome, String cognome, LocalDate dataNascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.dataNascita = dataNascita;
