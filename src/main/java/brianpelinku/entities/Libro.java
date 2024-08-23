@@ -8,8 +8,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "libri")
 public class Libro extends Elemento {
+    @Column(name = "autore", nullable = false)
     private String autore;
-    @Column(name = "genere_libro")
+    @Column(name = "genere_libro", nullable = false)
     private GenereLibro genereLibro;
 
     // costruttori

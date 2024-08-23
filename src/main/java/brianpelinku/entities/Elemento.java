@@ -8,12 +8,12 @@ import jakarta.persistence.*;
 public abstract class Elemento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codice_isbn")
+    @Column(name = "codice_isbn", nullable = false, unique = true)
     protected long codiceISBN;
     protected String titolo;
-    @Column(name = "anno_pubblicazione")
+    @Column(name = "anno_pubblicazione", nullable = false)
     protected int annoPubblicazione;
-    @Column(name = "numero_pagine")
+    @Column(name = "numero_pagine", nullable = false)
     protected int numPagine;
 
 

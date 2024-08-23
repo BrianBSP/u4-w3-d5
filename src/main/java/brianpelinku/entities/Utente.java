@@ -3,18 +3,24 @@ package brianpelinku.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "utenti")
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "n_tessera")
+    @Column(name = "n_tessera", nullable = false, unique = true)
     private long nTessera;
+    @Column(name = "nome", nullable = false)
     private String nome;
+    @Column(name = "cognome", nullable = false)
     private String cognome;
-    @Column(name = "data_nascita")
+    @Column(name = "data_nascita", nullable = false)
     private LocalDate dataNascita;
+
+    @OneToMany(mappedBy = "utente")
+    private List<Prestito> prestiti;
 
     // costruttori
     public Utente() {
