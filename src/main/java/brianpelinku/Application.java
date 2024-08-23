@@ -64,13 +64,16 @@ public class Application {
         Prestito prestito5 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
         Prestito prestito6 = new Prestito(LocalDate.of(2024, 7, 10), LocalDate.of(2024, 8, 10), LocalDate.of(2024, 8, 10), utente1);
 
-        pd.save(prestito1);
+        // inseriti prestiti
+
+        /*pd.save(prestito1);
         pd.save(prestito2);
         pd.save(prestito3);
         pd.save(prestito4);
         pd.save(prestito5);
-        pd.save(prestito6);
+        pd.save(prestito6);*/
 
+        
         System.out.println("Hello World!");
 
         em.close();
