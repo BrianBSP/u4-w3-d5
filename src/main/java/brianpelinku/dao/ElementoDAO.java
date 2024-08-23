@@ -59,4 +59,12 @@ public class ElementoDAO {
         return query.getResultList();
     }
 
+    // ricerca per titolo
+    public List<Elemento> getByTitle(String titolo) {
+        TypedQuery<Elemento> query = em.createNamedQuery("get_by_title", Elemento.class);
+        query.setParameter("titolo", "%" + titolo + "%");
+        return query.getResultList();
+    }
+
+
 }

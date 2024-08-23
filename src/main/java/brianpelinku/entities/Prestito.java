@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "prestiti")
+@NamedQuery(name = "ricerca_elementi_in_prestito_utente", query = "SELECT e FROM Prestito e WHERE e.utente.nTessera=:nTessera AND e.dataRestituzione IS NULL")
 public class Prestito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
