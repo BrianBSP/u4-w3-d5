@@ -1,9 +1,13 @@
 package brianpelinku.dao;
 
 import brianpelinku.entities.Elemento;
+import brianpelinku.entities.Libro;
 import brianpelinku.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class ElementoDAO {
     private EntityManager em;
@@ -41,6 +45,18 @@ public class ElementoDAO {
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    // ricerca per isbn
+    public Elemento getByISBN(long id) {
+        return em.find(Elemento.class, id);
+    }
+
+    // ricerca per autore
+    public List<Libro> getByAuthor(String autore) {
+        TypedQuery<Libro> query = em.createNamedQuery("get_by_author", Libro.class);
+        query.setParameter("autore", autore);
+        return query.getResultList();
     }
 
 }
